@@ -3,18 +3,14 @@ spring:
     name: eureka
 
 eureka:
-  server:
-    enable-self-preservation: false       # 关闭自我保护
-    eviction-interval-timer-in-ms: 60000  # 清理间隔（单位毫秒，默认是60*1000）
+  client:
+    registerWithEureka: true      # 自己注册为实例 defaultZone 必须可用
+    fetchRegistry: false          # 是否从eureka服务器获取注册信息
 
-#server:
-#  port: 8761
-#
 #eureka:
-#  instance:
-#    hostname: peer1
+#  server:
+#    enable-self-preservation: false       # 关闭自我保护
+#    eviction-interval-timer-in-ms: 60000  # 清理间隔（单位毫秒，默认是60*1000）
 #  client:
-#    registerWithEureka: false
-#    fetchRegistry: false
-#    serviceUrl:
-#      defaultZone: http://peer2:8762/
+#    registerWithEureka: true
+#    fetchRegistry: true

@@ -1,0 +1,16 @@
+# 单节点注册中心server
+spring:
+  application:
+    name: server
+
+server:
+  port: 8750
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
