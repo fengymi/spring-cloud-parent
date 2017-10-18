@@ -1,6 +1,7 @@
 package com.fengymi.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,19 +18,34 @@ import java.util.List;
 @RestController
 public class ServiceInstanceRestController {
 
+    @Value("${spring.application.name}")
+    private String applicationName;
+
     private final FeignClientTest feignClientTest;
     private final DiscoveryClient discoveryClient;
 
     @Autowired
-    public ServiceInstanceRestController(DiscoveryClient discoveryClient, FeignClientTest feignClientTest) {
-        this.discoveryClient = discoveryClient;
+    public ServiceInstanceRestController(FeignClientTest feignClientTest, DiscoveryClient discoveryClient) {
         this.feignClientTest = feignClientTest;
+        this.discoveryClient = discoveryClient;
     }
 
 
     @RequestMapping(value = "/test/name")
     public String hello(@RequestParam(value = "name") String name){
         return feignClientTest.hello(name);
+    }
+
+    @RequestMapping(value = "/client{number}")
+    public String client(@PathVariable(value = "number") String number){
+        System.out.println("client : " + number);
+        return applicationName;
+    }
+
+    @RequestMapping(value = "/{everything}")
+    public String everything(@PathVariable(value = "everything") String everything){
+        System.out.println(applicationName + ":" + everything);
+        return applicationName;
     }
 
     @RequestMapping("/service-instances/{applicationName}")

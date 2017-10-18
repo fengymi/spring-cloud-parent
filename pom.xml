@@ -10,12 +10,12 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>spring-cloud-client</module>
-        <module>spring-cloud-server</module>
-        <module>zk-service</module>
+        <module>config-client</module>
+        <module>config-server</module>
         <module>eureka-server</module>
         <module>eureka-client</module>
         <module>common</module>
+        <module>zuul</module>
     </modules>
 
     <properties>

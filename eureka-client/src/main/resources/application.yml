@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: default
+#eureka.instance.leaseRenewalIntervalInSeconds
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8750/eureka/
+#  instance:
+#    lease-expiration-duration-in-seconds: 30
+#    lease-renewal-interval-in-seconds: 10

@@ -10,8 +10,8 @@ import java.io.IOException;
  * 2017-10-16 10:44
  */
 @SpringBootApplication
-public class ApplicationDemo {
+public class ConfigClientApplication {
     public static void main(String[] args) throws IOException {
-        SpringApplication.run(ApplicationDemo.class, args);
+        SpringApplication.run(ConfigClientApplication.class, args);
     }
 }

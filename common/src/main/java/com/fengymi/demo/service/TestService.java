@@ -6,5 +6,10 @@ package com.fengymi.demo.service;
  */
 public interface TestService {
 
+    /**
+     * 测试
+     * @param key key
+     * @return value
+     */
     String hello(String key);
 }

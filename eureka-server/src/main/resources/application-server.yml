@@ -7,10 +7,14 @@ server:
   port: 8750
 
 eureka:
+#  server:
+#    enableSelfPreservation: true
   instance:
     hostname: localhost
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
   client:
     registerWithEureka: false
-    fetchRegistry: true
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
