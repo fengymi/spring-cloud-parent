@@ -16,6 +16,7 @@
         <module>eureka-client</module>
         <module>common</module>
         <module>zuul</module>
+        <module>bus</module>
     </modules>
 
     <properties>

@@ -6,3 +6,7 @@ spring:
       server:
         git:
           uri: https://github.com/fengymi/spring-cloud-config.git
+#          username:
+#          password:
+#          search-paths:
+      label: master
