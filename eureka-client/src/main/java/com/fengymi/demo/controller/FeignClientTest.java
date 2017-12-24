@@ -2,7 +2,7 @@ package com.fengymi.demo.controller;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -20,6 +20,6 @@ public interface FeignClientTest {
      * @param name 输入的名称
      * @return 测试
      */
-    @RequestMapping(value = "/test/name")
+    @GetMapping(value = "/test/name")
     String hello(@RequestParam(value = "name") String name);
 }

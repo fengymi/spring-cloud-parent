@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,24 +31,24 @@ public class ServiceInstanceRestController {
     }
 
 
-    @RequestMapping(value = "/test/name")
+    @GetMapping(value = "/test/name")
     public String hello(@RequestParam(value = "name") String name){
         return feignClientTest.hello(name);
     }
 
-    @RequestMapping(value = "/client{number}")
+    @GetMapping(value = "/client{number}")
     public String client(@PathVariable(value = "number") String number){
         System.out.println("client : " + number);
         return applicationName;
     }
 
-    @RequestMapping(value = "/{everything}")
+    @GetMapping(value = "/{everything}")
     public String everything(@PathVariable(value = "everything") String everything){
         System.out.println(applicationName + ":" + everything);
         return applicationName;
     }
 
-    @RequestMapping("/service-instances/{applicationName}")
+    @GetMapping("/service-instances/{applicationName}")
     public List<ServiceInstance> serviceInstancesByApplicationName(
             @PathVariable String applicationName) {
         System.out.println("start");
